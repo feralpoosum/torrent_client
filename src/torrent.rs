@@ -25,7 +25,7 @@ pub struct Torrent {
 }
 
 impl Torrent {
-    pub fn download(&self) {
+    pub fn download(self) {
         let mut hash_str = String::new();
         for elem in &self.info_hash {
             if (*elem as char).is_ascii_alphanumeric() {
@@ -107,7 +107,7 @@ impl Torrent {
                 ip,
                 port,
                 peer_id: peer_id.clone(),
-                torrent: *self,
+                torrent: self,
             };
             peers.push(peer);
 
